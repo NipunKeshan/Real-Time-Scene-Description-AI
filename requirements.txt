@@ -1,0 +1,53 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.30.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# Advanced AI models
+sentence-transformers>=2.2.2
+clip-by-openai>=1.0
+ultralytics>=8.0.0
+timm>=0.9.0
+
+# Web interface and visualization
+streamlit>=1.28.0
+plotly>=5.15.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Performance and optimization
+accelerate>=0.21.0
+bitsandbytes>=0.41.0
+optimum>=1.12.0
+
+# Audio processing (for future multimodal features)
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# Utilities and logging
+python-dotenv>=1.0.0
+loguru>=0.7.0
+typer>=0.9.0
+rich>=13.0.0
+pydantic>=2.0.0
+httpx>=0.24.0
+
+# Development and testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
+pre-commit>=3.3.0
+
+# Data handling
+pandas>=2.0.0
+sqlalchemy>=2.0.0
+
+# Deployment
+gunicorn>=21.0.0
+uvicorn>=0.23.0
+fastapi>=0.100.0

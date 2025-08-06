@@ -1,0 +1,140 @@
+# Application Configuration
+app:
+  name: "Real-Time AI Scene Description"
+  version: "2.0.0"
+  debug: false
+  log_level: "INFO"
+
+# Model Configuration
+models:
+  # Primary captioning model
+  blip:
+    model_name: "Salesforce/blip2-opt-2.7b"
+    device: "auto"  # auto, cpu, cuda
+    precision: "fp16"  # fp32, fp16, int8
+    max_new_tokens: 50
+    temperature: 0.7
+  
+  # Vision-language understanding
+  clip:
+    model_name: "ViT-B/32"
+    device: "auto"
+    batch_size: 1
+  
+  # Object detection
+  yolo:
+    model_name: "yolov8n"
+    confidence: 0.5
+    iou_threshold: 0.45
+    max_detections: 100
+  
+  # Emotion analysis
+  emotion:
+    model_name: "j-hartmann/emotion-english-distilroberta-base"
+    device: "auto"
+
+# Video Processing Configuration
+video:
+  # Input settings
+  input:
+    camera_id: 0
+    resolution: [640, 480]
+    fps: 30
+  
+  # Processing settings
+  processing:
+    frame_skip: 30  # Process every nth frame
+    resize_for_inference: [384, 384]
+    enable_gpu_decode: true
+  
+  # Output settings
+  output:
+    display_fps: true
+    save_video: false
+    output_path: "outputs/"
+
+# Performance Optimization
+performance:
+  # GPU settings
+  gpu:
+    enable_mixed_precision: true
+    enable_cuda_graphs: false
+    memory_fraction: 0.8
+  
+  # Caching
+  cache:
+    enable_model_cache: true
+    enable_result_cache: true
+    cache_size: 1000
+    ttl_seconds: 300
+  
+  # Threading
+  threading:
+    enable_async_processing: true
+    worker_threads: 2
+    queue_size: 10
+
+# API Configuration
+api:
+  host: "127.0.0.1"
+  port: 8000
+  workers: 1
+  enable_cors: true
+  rate_limit: "100/minute"
+
+# UI Configuration
+ui:
+  streamlit:
+    host: "127.0.0.1"
+    port: 8501
+    theme: "dark"
+    enable_camera: true
+    enable_file_upload: true
+  
+  display:
+    caption_position: [10, 30]
+    caption_font: "FONT_HERSHEY_SIMPLEX"
+    caption_scale: 0.8
+    caption_color: [0, 255, 0]
+    caption_thickness: 2
+    
+    bbox_color: [255, 0, 0]
+    bbox_thickness: 2
+    label_background: true
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} | {message}"
+  rotation: "1 day"
+  retention: "30 days"
+  backtrace: true
+  diagnose: true
+  
+  # Log files
+  files:
+    - sink: "logs/app.log"
+      level: "INFO"
+    - sink: "logs/error.log"
+      level: "ERROR"
+    - sink: "logs/performance.log"
+      level: "DEBUG"
+      filter: "performance"
+
+# Monitoring and Metrics
+monitoring:
+  enable_metrics: true
+  metrics_port: 9090
+  health_check_interval: 30
+  
+  alerts:
+    fps_threshold: 10
+    memory_threshold: 0.9
+    error_rate_threshold: 0.1
+
+# Security
+security:
+  enable_authentication: false
+  api_key_required: false
+  cors_origins: ["*"]
+  max_request_size: "10MB"
