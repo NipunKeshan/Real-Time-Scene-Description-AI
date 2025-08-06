@@ -168,14 +168,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Ultralytics for YOLOv8 implementation
 - Streamlit team for the amazing web framework
 
-## 📞 Contact
 
-**Nipun Keshan**
-- 📧 Email: [your-email@domain.com]
-- 💼 LinkedIn: [Your LinkedIn Profile]
-- 🐙 GitHub: [@NipunKeshan](https://github.com/NipunKeshan)
-
----
 
 ⭐ **Star this repository if you found it helpful!**
 
